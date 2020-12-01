@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { DataContext } from '../Context'
-import { Link } from 'react-router-dom'
 import '../css/Details.css'
 import '../css/Cart.css'
 
