@@ -12,7 +12,7 @@ export class DataProvider extends Component {
     };
 
     addCart = (id) => {
-        const { products, cart, price } = this.state;
+        const { products, cart } = this.state;
         const check = cart.every(item => {
             return item.id !== id
         })
@@ -41,7 +41,7 @@ export class DataProvider extends Component {
     };
 
     getTotal = () => {
-        const { cart, price, count } = this.state;
+        const { cart, price } = this.state;
         const res = cart.reduce((prev) => {
             return prev + (price);
         }, 0)
