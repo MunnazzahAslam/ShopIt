@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { DataContext } from '../Context'
-import { Link } from 'react-router-dom'
 import '../css/Details.css'
 import '../css/Cart.css'
 
@@ -41,7 +40,7 @@ export class Cart extends Component {
                         ))
                         }
                     <div className="total">
-                        <button onClick={changeText()}>Order Now</button>
+                        <button onClick={changeText}>Order Now</button>
                         <h3>Total: ${total}</h3>
                     </div>
                     
