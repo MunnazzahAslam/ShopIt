@@ -20,6 +20,10 @@ jobs:
         with:
          cmd: install 
      
+     #Install Redux
+      - name: Install Redux
+        run: npm install --global redux
+     
      #Build react with yarn
       - name: Build react app
         run: yarn build
