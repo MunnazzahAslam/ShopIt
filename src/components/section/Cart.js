@@ -6,20 +6,21 @@ import '../css/Cart.css'
 export class Cart extends Component {
     static contextType = DataContext;
     state = {
-        text: "Order Received"
+        text: "Order Now"
     }
 
     componentDidMount() {
         this.context.getTotal();
     }
-
+    
+    changeText = (text) => {
+        this.setState({ text }); 
+      } 
+    
     render() {
         const { cart, price, removeProduct, total } = this.context;
-
-        const changeText = (text) => {
-            this.setState({ text });
-        }
-    
+        const { text } =this.state;
+       
         if (cart.length === 0) {
             return <h2 style={{ textAlign: "center", color: "#264d59" }}>Please add something in the cart first</h2>
         } else {
@@ -40,7 +41,7 @@ export class Cart extends Component {
                         ))
                         }
                     <div className="total">
-                        <button onClick={changeText}>Order Now</button>
+                    <button onClick={() => { this.changeText("Order Received")}}>{text}</button>
                         <h3>Total: ${total}</h3>
                     </div>
                     
