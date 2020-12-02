@@ -11,6 +11,8 @@ export class DataProvider extends Component {
         price: 5.99
     };
 
+    //Function to add product in cart w.r.t its id
+
     addCart = (id) => {
         const { products, cart } = this.state;
         const check = cart.every(item => {
@@ -26,6 +28,8 @@ export class DataProvider extends Component {
         }
     };
 
+    //Function to remove product from cart after confirmation from the user w.r.t its id
+
     removeProduct = id => {
         if (window.confirm("Do you want to delete this product?")) {
             const { cart } = this.state;
@@ -37,8 +41,9 @@ export class DataProvider extends Component {
             this.setState({ cart: cart });
             this.getTotal();
         }
-
     };
+
+    //Function to get total price of products in cart 
 
     getTotal = () => {
         const { cart, price } = this.state;
@@ -48,12 +53,14 @@ export class DataProvider extends Component {
         this.setState({ total: res })
     };
 
+    //To update values based on user input
     componentDidUpdate() {
         localStorage.setItem('dataCart', JSON.stringify(this.state.cart))
         localStorage.setItem('dataTotal', JSON.stringify(this.state.total))
         localStorage.setItem('dataPrice', JSON.stringify(this.state.price))
     };
 
+    //Fetching data from API and updating cart values according to the user selection
     componentDidMount() {
         fetch('https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json')
             .then((response) => response.json())
@@ -79,6 +86,8 @@ export class DataProvider extends Component {
         const { products, price, cart, total } = this.state;
         const { addCart, reduction, increase, removeProduct, getTotal } = this;
         return (
+
+            //Passing values as props to the consuming components
             <DataContext.Provider
                 value={{ products, price, cart, addCart, reduction, increase, removeProduct, total, getTotal }}>
                 {this.props.children}

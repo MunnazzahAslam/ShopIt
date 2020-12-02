@@ -4,12 +4,12 @@ import Close from './svg/times-solid.svg'
 import CartIcon from './svg/shopping-cart-solid.svg'
 import {Link} from 'react-router-dom'
 import './css/Header.css'
-import {DataContext} from './Context'
-
-
+import {DataContext} from './reduxreactindex'
 
 export class Header extends Component {
     static contextType = DataContext;
+
+    /* Toggle for smaller devices navbar */
 
     state = {
         toggle: false
@@ -21,8 +21,11 @@ export class Header extends Component {
 
 
     render() {
+
+        //Destructuring data
         const {toggle} = this.state;
         const {cart} = this.context;
+
         return (
             <header>
                 <div className="menu" onClick={this.menuToggle}>
@@ -43,6 +46,7 @@ export class Header extends Component {
                         </li>
                     </ul>
                     <div className="nav-cart">
+                        {/* A span to show the number of products in cart */}
                         <span>{cart.length}</span>
                         <Link to="/cart">
                             <img src={CartIcon} alt="" width="20"/>

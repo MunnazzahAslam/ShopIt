@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {DataContext} from '../Context'
+import {DataContext} from '../reduxreactindex'
 import {Link} from 'react-router-dom'
 import '../css/Details.css'
 

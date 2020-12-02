@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { DataContext } from '../Context'
+import { DataContext } from '../reduxreactindex'
 import '../css/Details.css'
 import '../css/Cart.css'
 

@@ -1,5 +1,6 @@
 {
-  "name": "shopping-cart",
+  "name": "planz",
+  "author": "Munnazzah Aslam",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
